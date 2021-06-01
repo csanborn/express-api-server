@@ -7,7 +7,12 @@ const app = express();
 const apiKey = '75e843de569fb57a783c2e73fd9a7bb5';
 
 app.get('/', (req, res) => {
-    res.send('Express server for weather app')
+    res.status('200').send('Express server for weather app')
+});
+
+app.get('/ping', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.status('200').send('Server is running');
 });
 
 app.get('/api/weather/:city', async (req, res) => {
